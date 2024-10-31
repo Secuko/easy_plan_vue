@@ -1,0 +1,220 @@
+{
+    "id": uuidv4(),
+    "title": "project A",
+    "sections": [
+        {
+            "id": uuidv4(),
+            "name": "Sprint #1",
+            "columns": [
+                {
+                    "id": uuidv4(),
+                    "title": "To Do",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Design Homepage", "assignee": "Doe", "createdAt": Date.now(), "description": "Create the main layout and design for the homepage", "priority": 4 },
+                        { "id": uuidv4(), "text": "Database Setup", "assignee": this.testId, "createdAt": Date.now(), "description": "Set up the initial MySQL database schema", "priority": 2 },
+                        { "id": uuidv4(), "text": "Write Test Cases", "assignee": "Doe", "createdAt": Date.now(), "description": "Develop test cases for the login functionality", "priority": 3 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "In Progress",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Develop Login Feature", "assignee": "John", "createdAt": Date.now(), "description": "Create the backend and frontend logic for user login", "priority": 1 },
+                        { "id": uuidv4(), "text": "Create API Documentation", "assignee": "Doe", "createdAt": Date.now(), "description": "Write detailed API documentation for external services", "priority": 3 },
+                        { "id": uuidv4(), "text": "UI Fixes for Dashboard", "assignee": "John", "createdAt": Date.now(), "description": "Fix UI bugs in the dashboard module", "priority": 2 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "Review",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Bug Fix: Payment Gateway", "assignee": "John", "createdAt": Date.now(), "description": "Resolve issues with payment gateway integration", "priority": 5 },
+                        { "id": uuidv4(), "text": "Optimize Database Queries", "assignee": "Doe", "createdAt": Date.now(), "description": "Improve performance by optimizing slow SQL queries", "priority": 2 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "Done",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Implement Signup Feature", "assignee": "John", "createdAt": Date.now(), "description": "Successfully implemented the signup feature", "priority": 1 },
+                        { "id": uuidv4(), "text": "Fix Header Alignment", "assignee": "Doe", "createdAt": Date.now(), "description": "Correct header alignment issues on all pages", "priority": 3 },
+                        { "id": uuidv4(), "text": "Refactor CSS Styles", "assignee": "John", "createdAt": Date.now(), "description": "Clean up and optimize CSS for the entire project", "priority": 4 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "Backlog",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Add Search Functionality", "assignee": "John", "createdAt": Date.now(), "description": "Implement search bar with filters", "priority": 5 },
+                        { "id": uuidv4(), "text": "User Profile Update", "assignee": "Doe", "createdAt": Date.now(), "description": "Add ability for users to update their profiles", "priority": 4 },
+                        { "id": uuidv4(), "text": "Implement Notifications", "assignee": "John", "createdAt": Date.now(), "description": "Develop notification system for user activities", "priority": 3 },
+                        { "id": uuidv4(), "text": "Create Settings Page", "assignee": "Doe", "createdAt": Date.now(), "description": "Design and implement user settings page", "priority": 2 }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": uuidv4(),
+            "name": "Sprint #2",
+            "columns": [
+                {
+                    "id": uuidv4(),
+                    "title": "To Do",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Implement User Dashboard", "assignee": "John", "createdAt": Date.now(), "description": "Develop the UI and backend for user dashboard functionality", "priority": 3 },
+                        { "id": uuidv4(), "text": "Create Landing Page", "assignee": "Doe", "createdAt": Date.now(), "description": "Design and code the landing page for the website", "priority": 4 },
+                        { "id": uuidv4(), "text": "Set Up CI/CD Pipeline", "assignee": "Liza", "createdAt": Date.now(), "description": "Automate build and deployment with CI/CD tools", "priority": 2 },
+                        { "id": uuidv4(), "text": "Write Unit Tests", "assignee": "Fedor", "createdAt": Date.now(), "description": "Write unit tests for the user authentication module", "priority": 1 },
+                        { "id": uuidv4(), "text": "Prepare Presentation Slides", "assignee": "Ivan", "createdAt": Date.now(), "description": "Prepare slides for the upcoming client meeting", "priority": 5 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "In Progress",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Refactor Backend Code", "assignee": "John", "createdAt": Date.now(), "description": "Clean up and refactor the backend codebase for better maintainability", "priority": 2 },
+                        { "id": uuidv4(), "text": "Optimize Image Load Times", "assignee": "Liza", "createdAt": Date.now(), "description": "Reduce the image load times on the homepage by implementing lazy loading", "priority": 3 },
+                        { "id": uuidv4(), "text": "Develop Notification System", "assignee": "Fedor", "createdAt": Date.now(), "description": "Create the notification system for user activity alerts", "priority": 4 },
+                        { "id": uuidv4(), "text": "Implement Payment Module", "assignee": "Ivan", "createdAt": Date.now(), "description": "Integrate the payment gateway into the e-commerce site", "priority": 5 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "Review",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Security Audit", "assignee": "John", "createdAt": Date.now(), "description": "Review the system security and fix any vulnerabilities", "priority": 4 },
+                        { "id": uuidv4(), "text": "SEO Optimization", "assignee": "Doe", "createdAt": Date.now(), "description": "Ensure the site is optimized for search engines", "priority": 2 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "Done",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Deploy to Production", "assignee": "Liza", "createdAt": Date.now(), "description": "Successfully deployed the application to production servers", "priority": 5 },
+                        { "id": uuidv4(), "text": "Add Social Media Login", "assignee": "Ivan", "createdAt": Date.now(), "description": "Implemented social media login options (Facebook, Google)", "priority": 4 },
+                        { "id": uuidv4(), "text": "Fix Footer Links", "assignee": "John", "createdAt": Date.now(), "description": "Fixed broken links in the footer section across all pages", "priority": 1 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "Backlog",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Design Mobile Version", "assignee": "Fedor", "createdAt": Date.now(), "description": "Plan and design the mobile version of the website", "priority": 3 },
+                        { "id": uuidv4(), "text": "Add Dark Mode", "assignee": "Doe", "createdAt": Date.now(), "description": "Implement a dark mode theme switcher for the app", "priority": 5 },
+                        { "id": uuidv4(), "text": "Integrate Analytics", "assignee": "John", "createdAt": Date.now(), "description": "Add Google Analytics and custom tracking events", "priority": 2 }
+                    ]
+                }
+            ]
+        }
+    ]
+},
+{
+    "id": uuidv4(),
+    "title": "project B",
+    "sections": [
+        {
+            "id": uuidv4(),
+            "name": "Sprint #3",
+            "columns": [
+                {
+                    "id": uuidv4(),
+                    "title": "To Do",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Design Homepage", "assignee": "Doe", "createdAt": Date.now(), "description": "Create the main layout and design for the homepage", "priority": 4 },
+                        { "id": uuidv4(), "text": "Database Setup", "assignee": this.testId, "createdAt": Date.now(), "description": "Set up the initial MySQL database schema", "priority": 2 },
+                        { "id": uuidv4(), "text": "Write Test Cases", "assignee": "Doe", "createdAt": Date.now(), "description": "Develop test cases for the login functionality", "priority": 3 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "In Progress",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Develop Login Feature", "assignee": "John", "createdAt": Date.now(), "description": "Create the backend and frontend logic for user login", "priority": 1 },
+                        { "id": uuidv4(), "text": "Create API Documentation", "assignee": "Doe", "createdAt": Date.now(), "description": "Write detailed API documentation for external services", "priority": 3 },
+                        { "id": uuidv4(), "text": "UI Fixes for Dashboard", "assignee": "John", "createdAt": Date.now(), "description": "Fix UI bugs in the dashboard module", "priority": 2 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "Review",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Bug Fix: Payment Gateway", "assignee": "John", "createdAt": Date.now(), "description": "Resolve issues with payment gateway integration", "priority": 5 },
+                        { "id": uuidv4(), "text": "Optimize Database Queries", "assignee": "Doe", "createdAt": Date.now(), "description": "Improve performance by optimizing slow SQL queries", "priority": 2 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "Done",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Implement Signup Feature", "assignee": "John", "createdAt": Date.now(), "description": "Successfully implemented the signup feature", "priority": 1 },
+                        { "id": uuidv4(), "text": "Fix Header Alignment", "assignee": "Doe", "createdAt": Date.now(), "description": "Correct header alignment issues on all pages", "priority": 3 },
+                        { "id": uuidv4(), "text": "Refactor CSS Styles", "assignee": "John", "createdAt": Date.now(), "description": "Clean up and optimize CSS for the entire project", "priority": 4 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "Backlog",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Add Search Functionality", "assignee": "John", "createdAt": Date.now(), "description": "Implement search bar with filters", "priority": 5 },
+                        { "id": uuidv4(), "text": "User Profile Update", "assignee": "Doe", "createdAt": Date.now(), "description": "Add ability for users to update their profiles", "priority": 4 },
+                        { "id": uuidv4(), "text": "Implement Notifications", "assignee": "John", "createdAt": Date.now(), "description": "Develop notification system for user activities", "priority": 3 },
+                        { "id": uuidv4(), "text": "Create Settings Page", "assignee": "Doe", "createdAt": Date.now(), "description": "Design and implement user settings page", "priority": 2 }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": uuidv4(),
+            "name": "Sprint #4",
+            "columns": [
+                {
+                    "id": uuidv4(),
+                    "title": "To Do",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Implement User Dashboard", "assignee": "John", "createdAt": Date.now(), "description": "Develop the UI and backend for user dashboard functionality", "priority": 3 },
+                        { "id": uuidv4(), "text": "Create Landing Page", "assignee": "Doe", "createdAt": Date.now(), "description": "Design and code the landing page for the website", "priority": 4 },
+                        { "id": uuidv4(), "text": "Set Up CI/CD Pipeline", "assignee": "Liza", "createdAt": Date.now(), "description": "Automate build and deployment with CI/CD tools", "priority": 2 },
+                        { "id": uuidv4(), "text": "Write Unit Tests", "assignee": "Fedor", "createdAt": Date.now(), "description": "Write unit tests for the user authentication module", "priority": 1 },
+                        { "id": uuidv4(), "text": "Prepare Presentation Slides", "assignee": "Ivan", "createdAt": Date.now(), "description": "Prepare slides for the upcoming client meeting", "priority": 5 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "In Progress",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Refactor Backend Code", "assignee": "John", "createdAt": Date.now(), "description": "Clean up and refactor the backend codebase for better maintainability", "priority": 2 },
+                        { "id": uuidv4(), "text": "Optimize Image Load Times", "assignee": "Liza", "createdAt": Date.now(), "description": "Reduce the image load times on the homepage by implementing lazy loading", "priority": 3 },
+                        { "id": uuidv4(), "text": "Develop Notification System", "assignee": "Fedor", "createdAt": Date.now(), "description": "Create the notification system for user activity alerts", "priority": 4 },
+                        { "id": uuidv4(), "text": "Implement Payment Module", "assignee": "Ivan", "createdAt": Date.now(), "description": "Integrate the payment gateway into the e-commerce site", "priority": 5 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "Review",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Security Audit", "assignee": "John", "createdAt": Date.now(), "description": "Review the system security and fix any vulnerabilities", "priority": 4 },
+                        { "id": uuidv4(), "text": "SEO Optimization", "assignee": "Doe", "createdAt": Date.now(), "description": "Ensure the site is optimized for search engines", "priority": 2 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "Done",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Deploy to Production", "assignee": "Liza", "createdAt": Date.now(), "description": "Successfully deployed the application to production servers", "priority": 5 },
+                        { "id": uuidv4(), "text": "Add Social Media Login", "assignee": "Ivan", "createdAt": Date.now(), "description": "Implemented social media login options (Facebook, Google)", "priority": 4 },
+                        { "id": uuidv4(), "text": "Fix Footer Links", "assignee": "John", "createdAt": Date.now(), "description": "Fixed broken links in the footer section across all pages", "priority": 1 }
+                    ]
+                },
+                {
+                    "id": uuidv4(),
+                    "title": "Backlog",
+                    "cards": [
+                        { "id": uuidv4(), "text": "Design Mobile Version", "assignee": "Fedor", "createdAt": Date.now(), "description": "Plan and design the mobile version of the website", "priority": 3 },
+                        { "id": uuidv4(), "text": "Add Dark Mode", "assignee": "Doe", "createdAt": Date.now(), "description": "Implement a dark mode theme switcher for the app", "priority": 5 },
+                        { "id": uuidv4(), "text": "Integrate Analytics", "assignee": "John", "createdAt": Date.now(), "description": "Add Google Analytics and custom tracking events", "priority": 2 }
+                    ]
+                }
+            ]
+        }
+    ]
+}

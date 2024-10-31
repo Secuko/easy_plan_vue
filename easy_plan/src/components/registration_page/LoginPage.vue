@@ -1,7 +1,6 @@
 <script>
 // import { loginUser } from '../../api.js';
 // import { registerUser } from '../../api.js';
-import { registerUser } from '../../api.js';
 
 export default {
     name: '',
@@ -26,63 +25,17 @@ export default {
     },
     computed: {},
     methods: {
-        nameFieldValidator() {
-            if (this.nameField.trim() === '') {
-                this.nameError = this.errorDict.requiredFieldError;
-                return;
-            }
-            if (!(/^(([a-zA-Zа-яА-ЯёЁ]+\s){0,})+[a-zA-Zа-яА-ЯёЁ]+$/.test(this.nameField.trim()))) {
-                this.nameError = this.errorDict.uncorrectNameErr
-            } else {
-                this.nameError = "";
-            };
-        },
-        emailFieldValidator() {
-            if (this.emailField.trim() === '') {
-                this.emailError = this.errorDict.requiredFieldError;
-                return;
-            }
-            if (!(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$/.test(this.emailField.trim()))) {
-                this.emailError = this.errorDict.uncorrectEmailFormatErr
-            } else {
-                this.emailError = "";
-            };
-        },
-        passwordFieldValidator() {
-            if (this.passwordField.trim() === '') {
-                this.passwodError = this.errorDict.requiredFieldError;
-                return;
-            }
-            if (!(/(?=.*[0-9])(?=.*[a-z]).{8,}$/.test(this.passwordField.trim()))) {
-                this.passwodError = this.errorDict.uncorrectPasswordFormanErr
-            } else {
-                this.passwodError = "";
-            };
-        },
-        async inputFieldsValidation() {
-            this.nameFieldValidator();
-            this.emailFieldValidator();
-            this.passwordFieldValidator();
-            if (this.emailError == "" && this.nameError == "" && this.passwodError == "") {
-                const userData = {
-                    nickname: this.nameField.trim(),
-                    email: this.emailField.trim(),
-                    password: this.passwordField.trim(),
-                    role: 'user',
-                };
-                try {
-                    const response = await registerUser(userData);
-                    if (response.status == 201){
-                        console.log(response.message);
-                    }
-                } catch (error) {
-                    console.error('Ошибка авторизации:', error);
-                }
+        async handleLogin() {
+            try {
+                const response = await loginUser({ username: this.username, password: this.password });
+                console.log('Успешная авторизация:', response.data);
+            } catch (error) {
+                console.error('Ошибка авторизации:', error);
             }
         },
-        redirectToLoginPage(){
-            this.$router.push({ path: '/login', replace: true });
-        }
+        redirectToRegistrationPage(){
+            this.$router.push({ path: '/registration', replace: true });
+        },
     }
 }
 </script>
@@ -92,44 +45,29 @@ export default {
         <div className="login-window">
             <div className="login-window-content-wrapper">
                 <div className="login-window-content-header">
-                    Давай создадим аккаунт!
+                    Давай авторизируемся!
                 </div>
                 <div className="login-window-content-inputs-wrapper">
-                    <div className="login-window-input-element">
-                        <form className="login-form" method="post">
-                            <input type="text" size="40" placeholder="Никнейм" v-model="nameField"
-                                className="login-form-input" />
-                        </form>
-                        <div className="login-window-input-error">
-                            <p>{{ nameError }}</p>
-                        </div>
-                    </div>
                     <div className="login-window-input-element">
                         <form className="login-form" method="post">
                             <input type="text" size="40" placeholder="E-mail" v-model="emailField"
                                 className="login-form-input" />
                         </form>
-                        <div className="login-window-input-error">
-                            <p>{{ emailError }}</p>
-                        </div>
                     </div>
                     <div className="login-window-input-element">
                         <form className="login-form" method="post">
                             <input type="password" size="40" placeholder="Password" v-model="passwordField"
                                 className="login-form-input" />
                         </form>
-                        <div className="login-window-input-error">
-                            <p>{{ passwodError }}</p>
-                        </div>
                     </div>
                 </div>
                 <div class="page-link">
-                    <span class="page-link_text" @click="redirectToLoginPage()">
-                        Уже есть аккаунт?
+                    <span class="page-link_text" @click="redirectToRegistrationPage()">
+                        Еще нет аккаунта?
                     </span>
                 </div>
                 <div className="login-window-content-button">
-                    <p className="login-window-content-button-text" @click="inputFieldsValidation()">Создать аккаунт</p>
+                    <p className="login-window-content-button-text" @click="handleLogin()">Создать аккаунт</p>
                 </div>
             </div>
         </div>
@@ -137,6 +75,7 @@ export default {
 </template>
 
 <style scoped>
+
 .page-link{
     margin-bottom: 10px;
     padding: 10px;
@@ -170,7 +109,7 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 600px;
+    height: 480px;
     width: 570px;
     border-radius: 35px;
     padding-top: 28px;
@@ -230,7 +169,6 @@ export default {
 }
 
 .login-window-content-button {
-    cursor: default;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -239,12 +177,6 @@ export default {
     border-radius: 20px;
     border: 1px solid black;
     background-color: rgba(235, 235, 235, 1);
-}
-
-.login-window-content-button:hover {
-    border-radius: 20px;
-    border: 2px solid black;
-    background-color: rgb(204, 204, 204);
 }
 
 .login-window-content-button-text {

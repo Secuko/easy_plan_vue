@@ -1,4 +1,5 @@
-import './assets/main.css';
+// import './assets/main.css';
+import './assets/desk.css'
 import router  from './router';
 import MainPage from "./components/main_page/MainPage.vue";
 import RegistrationPage from "./components/registration_page/RegistrationPage.vue";
@@ -14,6 +15,6 @@ import App from './App.vue';
 // })
 
 const app = createApp(App);
-app.use(router);    
+app.use(router);
 app.mount('#app');
 // createApp(App).mount('#app')
