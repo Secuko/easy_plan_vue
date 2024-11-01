@@ -63,24 +63,29 @@ export default {
             this.nameFieldValidator();
             this.emailFieldValidator();
             this.passwordFieldValidator();
-            if (this.emailError == "" && this.nameError == "" && this.passwodError == "") {
+            // if (this.emailError == "" && this.nameError == "" && this.passwodError == "") {
+            if (true) {
+                // const userData = {
+                //     nickname: this.nameField.trim(),
+                //     email: this.emailField.trim(),
+                //     password: this.passwordField.trim(),
+                //     role: 'user',
+                // };
                 const userData = {
-                    nickname: this.nameField.trim(),
-                    email: this.emailField.trim(),
-                    password: this.passwordField.trim(),
+                    nickname: 'user103',
+                    email: 'user103@mail.ru',
+                    password: 'qwerty123!',
                     role: 'user',
                 };
-                try {
-                    const response = await registerUser(userData);
-                    if (response.status == 201){
-                        console.log(response.message);
-                    }
-                } catch (error) {
-                    console.error('Ошибка авторизации:', error);
+                const {message, status} = await registerUser(userData);
+                if (status == 201) {
+                    console.log(message);
+                } else {
+                    console.log(`Error: ${message}`)
                 }
             }
         },
-        redirectToLoginPage(){
+        redirectToLoginPage() {
             this.$router.push({ path: '/login', replace: true });
         }
     }
@@ -137,22 +142,22 @@ export default {
 </template>
 
 <style scoped>
-.page-link{
+.page-link {
     margin-bottom: 10px;
     padding: 10px;
 }
 
-.page-link:hover{
+.page-link:hover {
     cursor: default;
 }
 
-.page-link_text{
+.page-link_text {
     font-size: 20px;
     font-weight: 500;
     color: aliceblue;
 }
 
-.page-link_text:hover{
+.page-link_text:hover {
     color: black;
 }
 
@@ -309,56 +314,56 @@ export default {
 
 @media only screen and (max-width: 600px) {
 
-  /* login content */
-  .login-window-content-wrapper {
-    height: 380px;
-    width: 360px;
-    padding-top: 14px;
-    padding-bottom: 28px;
-    padding-right: 25px;
-    padding-left: 25px;
-    padding: 10px auto;
-  }
+    /* login content */
+    .login-window-content-wrapper {
+        height: 380px;
+        width: 360px;
+        padding-top: 14px;
+        padding-bottom: 28px;
+        padding-right: 25px;
+        padding-left: 25px;
+        padding: 10px auto;
+    }
 
-  .login-window-content-header {
-    font-size: 25px;
+    .login-window-content-header {
+        font-size: 25px;
 
-  }
+    }
 
-  .login-window-content-inputs-wrapper {
-    margin-top: 30px;
-    height: 400px;
-  }
+    .login-window-content-inputs-wrapper {
+        margin-top: 30px;
+        height: 400px;
+    }
 
-  .login-window-input-element {
-    width: 330px;
-    height: 35px;
-  }
+    .login-window-input-element {
+        width: 330px;
+        height: 35px;
+    }
 
-  .login-window-input-element {
-    margin-bottom: 2px;
-    height: 65px;
-  }
+    .login-window-input-element {
+        margin-bottom: 2px;
+        height: 65px;
+    }
 
-  .login-form-input {
-    font-size: 20px;
-    height: 50px;
-    padding: 7px 10px;
-  }
+    .login-form-input {
+        font-size: 20px;
+        height: 50px;
+        padding: 7px 10px;
+    }
 
-  .login-window-input-error {
-    height: 15px;
-    font-size: 12px;
-  }
+    .login-window-input-error {
+        height: 15px;
+        font-size: 12px;
+    }
 
-  .login-window-content-button {
-    width: 250px;
-    height: 80px;
-  }
+    .login-window-content-button {
+        width: 250px;
+        height: 80px;
+    }
 
-  .login-window-content-button-text {
-    font-size: 25px;
-  }
+    .login-window-content-button-text {
+        font-size: 25px;
+    }
 
 }
 </style>

@@ -17,11 +17,13 @@ export const registerUser = async (userData) => {
     try {
         // Отправка запроса на маршрут регистрации
         const response = await axios.post(`${API_URL}/register`, userData);
-
+        // console.log('заброс был оправлен')
+        const { message } = response.data
         // Возвращаем данные об успешной регистрации
-        return response.data;
+        return { message, status: response.status };
     } catch (error) {
         console.error('Error registering user:', error.response?.data || error.message);
+        return { message: error.message, status: error.response?.status }
         throw error;
     }
 };
@@ -35,14 +37,65 @@ export const loginUser = async (email, password) => {
             password,
         });
 
-        const { token, message } = response.data;
+        const { token, message, user } = response.data;
 
         // Сохранение токена в localStorage
         localStorage.setItem('authToken', token);
 
-        return { message, token };
+        return { message, token, user };
     } catch (error) {
         console.error('Error logging in:', error.response?.data || error.message);
+        return { message: error.message,  token: null, user: null };
+        throw error;
+    }
+};
+
+
+/*
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+                                Методы для админа
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+*/
+
+
+// Метод для получения всех пользователей, не являющихся администраторами
+export const fetchNonAdminUsers = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/users/non-admins`);
+        return response.data.users; // Возвращаем массив пользователей с полями { id, email }
+    } catch (error) {
+        console.error('Error fetching non-admin users:', error);
+        throw error;
+    }
+};
+
+// Метод для получения списка всех досок с полями id и title
+export const fetchAllDesks = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/desks`);
+        return response.data.desks; // Возвращаем массив досок с полями { id, title }
+    } catch (error) {
+        console.error('Error fetching desks:', error);
+        throw error;
+    }
+};
+
+
+// Метод для добавления пользователей на доску
+export const addUsersToDesk = async (deskId, userIds) => {
+    try {
+        const response = await axios.post(`${API_URL}/desk/${deskId}/add-users`, {
+            userIds
+        });
+
+        const { message } = response.data
+        // Возвращаем данные об успешной регистрации
+        return { message, status: response.status };
+    } catch (error) {
+        console.error('Error adding users to desk:', error);
+        return { message: error.message, status: error.response?.status }
         throw error;
     }
 };
@@ -198,7 +251,7 @@ export const deleteCards = async (deskId, sectionId, columnId, cardIds) => {
         if (response.status = 204) {
             let deletedIdString = '';
             cardIds.forEach(element => {
-                deletedIdString+=element+','
+                deletedIdString += element + ','
             })
 
             console.log(`Successfully deleted cards ${deletedIdString}`)

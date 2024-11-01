@@ -31,11 +31,11 @@ export default {
             isEditingEmail: false,
             isEditingRole: false,
             isAsideMenuIOpen: false,
+            userAvatar: 'https://avatars.mds.yandex.net/i?id=af323ca978c6d79c7ee6bf4400e604309a88a436-8199407-images-thumbs&n=13',
             user: {
                 name: 'Ivan Ivanov',
                 email: 'email@mail.su',
-                role: 'programmer',
-                avatar: 'https://avatars.mds.yandex.net/i?id=af323ca978c6d79c7ee6bf4400e604309a88a436-8199407-images-thumbs&n=13'
+                role: 'user',
             },
             assignee: [
                 {
@@ -57,6 +57,7 @@ export default {
         }
     },
     created() {
+        this.user = JSON.parse(this.$route.query.data);
         if (this.deskData.length > 0) {
             this.currentDeskIndex = 0
             this.deskData[this.currentDeskIndex].sections.forEach(() => {
@@ -185,7 +186,7 @@ export default {
             <div class="account-link-wrapper">
                 <!-- Аватарка пользователя -->
                 <div class="user-avatar" @click="toggleAccountWindow">
-                    <img v-if="user.avatar" :src="user.avatar" alt="User Avatar" />
+                    <img v-if="userAvatar" :src="userAvatar" alt="User Avatar" />
                 </div>
 
                 <!-- Окно профиля -->
@@ -194,7 +195,7 @@ export default {
                         <!-- Аватар с возможностью редактирования при двойном клике -->
                         <div class="user-avatar-wrapper">
                             <div class="user-avatar" @dblclick="editAvatar">
-                                <img v-if="user.avatar" :src="user.avatar" alt="User Avatar" />
+                                <img v-if="userAvatar" :src="userAvatar" alt="User Avatar" />
                             </div>
                         </div>
 
@@ -298,7 +299,8 @@ export default {
                             </div>
                         </div>
                         <div class="taksboard-wrapper">
-                            <Desk :deskId="deskData[currentDeskIndex].id" :sectionId="section.id" :columnsData="section.columns" :assigneeList="assignee" :sectionIndex="sectionIndex"
+                            <Desk :deskId="deskData[currentDeskIndex].id" :sectionId="section.id"
+                                :columnsData="section.columns" :assigneeList="assignee" :sectionIndex="sectionIndex"
                                 @update-columns="updateColumns" />
                             <!-- <Desk v-model="section.columns" /> -->
                         </div>

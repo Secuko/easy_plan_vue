@@ -1,6 +1,5 @@
 <script>
-// import { loginUser } from '../../api.js';
-// import { registerUser } from '../../api.js';
+import { loginUser } from '../../api.js';
 
 export default {
     name: '',
@@ -14,26 +13,32 @@ export default {
             nameError: "",
             emailError: "",
             passwodError: "",
-            errorDict: {
-                uncorrectNameErr: "Имя должно быть не короче 5 символов",
-                existingNameErr: "Имя уже занято",
-                uncorrectEmailFormatErr: "Некорректный формат email",
-                uncorrectPasswordFormanErr: "Пароль слишком слабый",
-                requiredFieldError: "Обязательное поле",
-            }
         }
     },
     computed: {},
     methods: {
         async handleLogin() {
-            try {
-                const response = await loginUser({ username: this.username, password: this.password });
-                console.log('Успешная авторизация:', response.data);
-            } catch (error) {
-                console.error('Ошибка авторизации:', error);
+            // const {message, status, user} = await loginUser(this.emailField.trim(), this.passwordField.trim());
+            const {message, token, user} = await loginUser("testUser@mail.ru", "qwerty123!");
+            if (token) {
+                console.log(message);
+                console.log(`User token: ${token}`)
+                if (user.role == 'user'){
+                    this.redirectToDeskUserPage(user)
+                } else if (user.role == 'admin'){
+                    this.redirectToAdminPage()
+                }
+            } else {
+                console.log(`Error: ${message}`)
             }
         },
-        redirectToRegistrationPage(){
+        redirectToDeskUserPage(user) {
+            this.$router.push({ name: 'section', query: { data: JSON.stringify(user) }, replace: true });
+        },
+        redirectToAdminPage() {
+            this.$router.push({ path: '/admin', replace: true });
+        },
+        redirectToRegistrationPage() {
             this.$router.push({ path: '/registration', replace: true });
         },
     }
@@ -75,23 +80,22 @@ export default {
 </template>
 
 <style scoped>
-
-.page-link{
+.page-link {
     margin-bottom: 10px;
     padding: 10px;
 }
 
-.page-link:hover{
+.page-link:hover {
     cursor: default;
 }
 
-.page-link_text{
+.page-link_text {
     font-size: 20px;
     font-weight: 500;
     color: aliceblue;
 }
 
-.page-link_text:hover{
+.page-link_text:hover {
     color: black;
 }
 
@@ -241,56 +245,56 @@ export default {
 
 @media only screen and (max-width: 600px) {
 
-  /* login content */
-  .login-window-content-wrapper {
-    height: 380px;
-    width: 360px;
-    padding-top: 14px;
-    padding-bottom: 28px;
-    padding-right: 25px;
-    padding-left: 25px;
-    padding: 10px auto;
-  }
+    /* login content */
+    .login-window-content-wrapper {
+        height: 380px;
+        width: 360px;
+        padding-top: 14px;
+        padding-bottom: 28px;
+        padding-right: 25px;
+        padding-left: 25px;
+        padding: 10px auto;
+    }
 
-  .login-window-content-header {
-    font-size: 25px;
+    .login-window-content-header {
+        font-size: 25px;
 
-  }
+    }
 
-  .login-window-content-inputs-wrapper {
-    margin-top: 30px;
-    height: 400px;
-  }
+    .login-window-content-inputs-wrapper {
+        margin-top: 30px;
+        height: 400px;
+    }
 
-  .login-window-input-element {
-    width: 330px;
-    height: 35px;
-  }
+    .login-window-input-element {
+        width: 330px;
+        height: 35px;
+    }
 
-  .login-window-input-element {
-    margin-bottom: 2px;
-    height: 65px;
-  }
+    .login-window-input-element {
+        margin-bottom: 2px;
+        height: 65px;
+    }
 
-  .login-form-input {
-    font-size: 20px;
-    height: 50px;
-    padding: 7px 10px;
-  }
+    .login-form-input {
+        font-size: 20px;
+        height: 50px;
+        padding: 7px 10px;
+    }
 
-  .login-window-input-error {
-    height: 15px;
-    font-size: 12px;
-  }
+    .login-window-input-error {
+        height: 15px;
+        font-size: 12px;
+    }
 
-  .login-window-content-button {
-    width: 250px;
-    height: 80px;
-  }
+    .login-window-content-button {
+        width: 250px;
+        height: 80px;
+    }
 
-  .login-window-content-button-text {
-    font-size: 25px;
-  }
+    .login-window-content-button-text {
+        font-size: 25px;
+    }
 
 }
 </style>
